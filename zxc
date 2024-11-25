@@ -621,7 +621,6 @@ WEBSITE.Size = UDim2.new(0, 197, 0, 23)
 WEBSITE.ZIndex = 3
 WEBSITE.Font = Enum.Font.ArialBold
 WEBSITE.Text = [[Karved<font color="rgb(78, 93, 234)">.trident</font>]]
-WEBSITE.TextColor3 = Color3.fromRGB(199, 199, 199)
 WEBSITE.TextSize = 14.000
 WEBSITE.TextXAlignment = Enum.TextXAlignment.Left
 
