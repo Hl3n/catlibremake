@@ -419,7 +419,7 @@ for _,whitelisted in pairs(WhitelistedHWIDs) do
        end
     end
 end
-qNVAKkuwxNpqruLjSRHg = CheckHWID(HWID)
+--[[qNVAKkuwxNpqruLjSRHg = CheckHWID(HWID)
 if qNVAKkuwxNpqruLjSRHg == true then
     print("HWID WHITELISTED")
     else
@@ -427,7 +427,7 @@ if qNVAKkuwxNpqruLjSRHg == true then
     wait(3)
     while true do
     print("INVALID KEY/HWID")
-end
+end]]
 end
     library.ui["18"].MouseButton1Click:Connect(function()
         if library.ui["1c"].Text == loader.data.key and library.ui["12"].Text == loader.data.key then
