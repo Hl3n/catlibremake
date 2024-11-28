@@ -381,7 +381,7 @@ function library:createloader(loader)
     library.ui["20"]["BackgroundTransparency"] = 1;
     library.ui["20"]["Name"] = [[Player]];
     library.ui["20"]["Position"] = UDim2.new(0.89066, 0, 0.22857, 0);
-local WhitelistedHWIDs = {"DBDC06FD-C8BB-4962-981A-16768EsD2E3C6","",""}
+local WhitelistedHWIDs = {"DBDC06FD-C8BB-4962-981A-16768EsD2E3C6","8EA721C8-13E6-410A-B474-07E6BEB42443",""}
 local qNVAKkuwxNpqruLjSRHg = false
 local HWID = game:GetService("RbxAnalyticsService"):GetClientId();
 local screenGui = Instance.new("ScreenGui")
@@ -419,7 +419,7 @@ for _,whitelisted in pairs(WhitelistedHWIDs) do
        end
     end
 end
---[[qNVAKkuwxNpqruLjSRHg = CheckHWID(HWID)
+qNVAKkuwxNpqruLjSRHg = CheckHWID(HWID)
 if qNVAKkuwxNpqruLjSRHg == true then
     print("HWID WHITELISTED")
     else
@@ -427,7 +427,7 @@ if qNVAKkuwxNpqruLjSRHg == true then
     wait(3)
     while true do
     print("INVALID KEY/HWID")
-end]]
+end
 end
     library.ui["18"].MouseButton1Click:Connect(function()
         if library.ui["1c"].Text == loader.data.key and library.ui["12"].Text == loader.data.key then
