@@ -1,0 +1,192 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+local KeyGuardLibrary = loadstring(game:HttpGet("https://cdn.keyguardian.org/library/v1.0.0.lua"))()
+local trueData = "c5bb6ea502d640889ebb6beb6cd9cf58"
+local falseData = "7f45d51d4de7425981c7ddc48573c39a"
+--// rest will be obfuscated \\--
+KeyGuardLibrary.Set({
+  publicToken = "ad70b302589f40139f837e99b1765c99",
+  privateToken = "7ba1db6677c74b59866a2d69b3e4a09a",
+  trueData = trueData,
+  falseData = falseData,
+})
+
+local key = _G.Key
+
+local getkey = KeyGuardLibrary.getLink()
+
+local response = KeyGuardLibrary.validatePremiumKey(key)
+print(response)
+local Modules = {
+    Colors =  {
+        ["Green"] = "0,255,0", 
+        ["Red"] = "255, 0, 0",
+        ["White"] = "255,255,255",
+		["Pink"] = "255, 102, 153",
+    },
+    Services = {
+        RunService = game:GetService("RunService"),
+        CoreGui = game:GetService("CoreGui")
+    }
+}
+
+Modules.ChangeColor = function() 
+    local Loop;
+    Loop = Modules.Services.RunService.Heartbeat:Connect(function()
+        local success,err = pcall(function()
+            for index,label in pairs(Modules.Services.CoreGui:FindFirstChild("DevConsoleMaster"):GetDescendants()) do 
+                if label:IsA("TextLabel") then 
+                    label.RichText = true 
+                end 
+            end 
+        end)
+
+        if not success then 
+            warn(`A error occured {err}`)
+            Loop:Disconnect()
+        end 
+    end)
+end
+
+Modules.LoadingBar = function(watermark,color, delay,loadingsymbol)
+    delay = delay or 0.1 
+
+    local Text = watermark..tostring(math.random(500,20000))
+
+    print(Text)
+
+    local loadingLabel = nil
+    local progress = ""
+
+    repeat task.wait()
+        for index,label in pairs(Modules.Services.CoreGui:FindFirstChild("DevConsoleMaster"):GetDescendants()) do 
+             if label:IsA("TextLabel") and string.find(label.Text:lower(),Text:lower()) then 
+                loadingLabel = label 
+				break
+            end 
+        end 
+    until loadingLabel
+
+    local start = os.time()
+
+    for i = 1, 50 do
+        progress = progress .. loadingsymbol
+        loadingLabel.Text = string.format("<font color='rgb(%s)' size='15'>[%s] [%d%% loaded] %s</font>", Modules.Colors["White"],watermark, i*2, progress)
+        task.wait(delay)
+    end
+
+    loadingLabel.Text = string.format("<font color='rgb(%s)' size='15'>[%s] Successfully loaded in %ds</font> ; ".._G.Key, Modules.Colors[color],watermark, os.time() - start)
+end
+Modules.InvalidLoad = function(watermark,color, delay,loadingsymbol)
+    delay = delay or 0.1 
+
+    local Text = watermark..tostring(math.random(500,20000))
+
+    print(Text)
+
+    local loadingLabel = nil
+    local progress = ""
+
+    repeat task.wait()
+        for index,label in pairs(Modules.Services.CoreGui:FindFirstChild("DevConsoleMaster"):GetDescendants()) do 
+             if label:IsA("TextLabel") and string.find(label.Text:lower(),Text:lower()) then 
+                loadingLabel = label 
+				break
+            end 
+        end 
+    until loadingLabel
+
+    local start = os.time()
+
+    for i = 1, 50 do
+        progress = progress .. loadingsymbol
+        loadingLabel.Text = string.format("<font color='rgb(%s)' size='15'>[%s] [%d%% loaded] %s</font>", Modules.Colors["White"],watermark, i*2, progress)
+        task.wait(delay)
+    end
+    setclipboard(getkey)
+    loadingLabel.Text = string.format("<font color='rgb(%s)' size='15'>[%s] Invalid Key, Trial Link Copied To Clipboard</font> ; ".._G.Key, Modules.Colors[color],watermark, os.time() - start)
+end
+if response == trueData then
+Modules.ChangeColor()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Hl3n/hmmm/refs/heads/main/makesuretolikeandsubscribe"))()
+Modules.LoadingBar("SILENT","Green", 0.05,"#")
+else
+    Modules.ChangeColor()
+Modules.InvalidLoad("SILENT","Red", 0.05,"#")
+end
